@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Árszámoló alkalmazás</title>
+    <link
+      rel="stylesheet"
+      href="https://bootswatch.com/5/spacelab/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <!-- Az alkalmazas celja, 
+      a bolti arazasi folyamat gyorsitasa, megkonnyitese. -->
+
+    <!-- Roviditesek: 
+        br - brutto;
+        n - netto;
+        hk - haszonkulcs;
+        el - eladasi;
+        besz - beszerzesi;
+     -->
+    <div class="wrapper d-flex justify-content-center">
+      <div class="container d-flex justify-content-center align-items-center">
+        <div class="mx-auto d-flex flex-column justify-content-center">
+          <div class="app-name-wrapper">
+            <h1 class="app-name text-center fs-3 m-2">Eladási árkalkulátor</h1>
+          </div>
+          <div
+            class="
+              arszamolo-box-container
+              mx-auto
+              d-flex
+              flex-column
+              justify-content-center
+              shadow-lg
+              border border-4 border-light
+              rounded-3
+            "
+          >
+            <ul class="nav nav-tabs justify-content-between">
+              <li class="nav-item w-50">
+                <a
+                  class="nav-link border active"
+                  data-bs-toggle="tab"
+                  href="#br"
+                  ><span class="sortores">Bruttó beszerzési</span> árból
+                  számol</a
+                >
+              </li>
+              <li class="nav-item w-50">
+                <a class="nav-link border" data-bs-toggle="tab" href="#n"
+                  ><span class="sortores">Nettó beszerzési</span> árból
+                  számol</a
+                >
+              </li>
+            </ul>
+
+            <div class="tab-content container d-flex p-2">
+              <div
+                class="
+                  tab-pane
+                  fade
+                  active
+                  show
+                  br-besz-arszamolo
+                  width-90
+                  mx-auto
+                "
+                id="br"
+              >
+                <!-- Brutto beszerzesi arbol szamol eladasi arat FORM -->
+                <form class="brArSzamoloForm mb-3" name="brArSzamolo" id="form">
+                  <div
+                    class="
+                      br-ar
+                      app-part-bg
+                      row-height-7 row
+                      form-group
+                      mb-4
+                      align-items-center
+                      shadow
+                    "
+                  >
+                    <div class="col-4">
+                      <label
+                        for="brArInput"
+                        class="form-label text-color fs-6 fw-bold"
+                      >
+                        <span class="sortores">Bruttó</span>beszerzési ár:
+                      </label>
+                    </div>
+
+                    <div class="col-8">
+                      <input
+                        type="number"
+                        class="
+                          brutto-input
+                          input-bg
+                          form-control
+                          mt-2
+                          mb-2
+                          fs-2
+                          text-center
+                          js-validate js-brutto-input
+                        "
+                        name="brAr"
+                        id="brArInput"
+                        value=""
+                        maxlength="6"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="app-part-bg shadow-lg row justify-content-center">
+                    <div class="row">
+                      <div class="haszonkulcs-nev p-0">
+                        <p class="mb-1 mt-1 text-center">Haszonkulcsok:</p>
+                      </div>
+
+                      <div
+                        class="
+                          haszonkulcsok
+                          row-height-4
+                          d-flex
+                          flex-row flex-nowrap
+                          justify-content-center
+                        "
+                      >
+                        <input
+                          type="button"
+                          class="
+                            button-br-hk
+                            btn btn-primary btn-lg
+                            h-100
+                            fs-3
+                            js-onclick-35
+                          "
+                          value="35%"
+                        />
+                        <input
+                          type="button"
+                          class="
+                            button-br-hk
+                            btn btn-primary btn-lg
+                            h-100
+                            fs-3
+                            js-onclick-50
+                          "
+                          value="50%"
+                        />
+                        <input
+                          type="button"
+                          class="
+                            button-br-hk
+                            btn btn-primary btn-lg
+                            h-100
+                            fs-3
+                            js-onclick-55
+                          "
+                          value="55%"
+                        />
+                      </div>
+                    </div>
+
+                    <div class="haszonkulcs-tetszoleges row mt-2 mb-2">
+                      <div class="tetszoleges-nev">
+                        <p class="mb-1 text-center">Szabad haszonkulcs:</p>
+                      </div>
+
+                      <div class="row-height-4 p-0 d-flex">
+                        <div class="input-group tetszoleges-hk">
+                          <input
+                            type="number"
+                            class="
+                              input-bg
+                              form-control
+                              fs-6
+                              text-center
+                              js-validate js-tetszBr-input
+                            "
+                            name="tetszoleges"
+                            value=""
+                            maxlength="3"
+                          />
+                          <span class="input-group-text">%</span>
+                        </div>
+
+                        <input
+                          type="button"
+                          class="
+                            tetszoleges-hk
+                            btn btn-primary
+                            h-100
+                            fs-3
+                            js-onclick-TetszB
+                          "
+                          value="Számol"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                <div
+                  class="
+                    eladasi-ar-box
+                    row-height-10 row
+                    mt-4
+                    d-flex
+                    justify-content-center
+                    align-content-center
+                    app-part-bg
+                    shadow-lg
+                    border
+                  "
+                >
+                  <div class="col-12">
+                    <p class="eladasi-ar text-color fs-4 fw-bold m-0">
+                      Eladási ár:
+                    </p>
+                  </div>
+                  <div class="col-12">
+                    <p
+                      class="
+                        fs-3
+                        el-ar
+                        result-bg
+                        mb-2
+                        text-color text-center
+                        rounded-2
+                        d-flex
+                        justify-content-center
+                        align-items-center
+                        shadow-lg
+                        js-display-b
+                      "
+                    >
+                      Ft
+                    </p>
+                  </div>
+
+                  <div class="row">
+                    <p class="megjegyzes fs-6 mb-0">
+                      * Az eladási ár tartalmazza 200 Ft felett a + 5 Ft-ot.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Netto beszerzesi arbol szamol eladasi arat FORM -->
+              <div class="tab-pane fade width-90 mx-auto" id="n">
+                <form name="nettoArszamalo">
+                  <div
+                    class="
+                      n-ar
+                      app-part-bg
+                      row-height-7 row
+                      form-group
+                      mb-3
+                      align-items-center
+                      shadow
+                    "
+                  >
+                    <div class="col-4">
+                      <label
+                        for="netto-ar"
+                        class="form-label text-color fs-6 fw-bold m-0"
+                      >
+                        <span class="sortores">Nettó</span>
+                        beszerzési ár:
+                      </label>
+                    </div>
+                    <div class="col-8">
+                      <input
+                        type="number"
+                        class="
+                          netto-input
+                          input-bg
+                          row-height-4
+                          form-control
+                          fs-2
+                          text-center
+                          js-validate js-netto-input
+                        "
+                        name="nAr"
+                        id="netto-ar"
+                        value=""
+                        maxlength="6"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="app-part-bg shadow-lg row justify-content-center">
+                    <div class="afa row">
+                      <div class="afakulcs-nev p-0">
+                        <p class="text-center mt-1 mb-1">Áfakulcsok:</p>
+                      </div>
+
+                      <div
+                        class="
+                          afakulcsok
+                          row-height-3
+                          d-flex
+                          flex-row flex-nowrap
+                          justify-content-center
+                        "
+                      >
+                        <input
+                          type="button"
+                          class="
+                            button-afa
+                            btn btn-primary btn-lg
+                            h-100
+                            fs-3
+                            js-onclick-5
+                          "
+                          value="5%"
+                        />
+                        <input
+                          type="button"
+                          class="
+                            button-afa
+                            btn btn-primary btn-lg
+                            h-100
+                            fs-3
+                            js-onclick-18
+                          "
+                          value="18%"
+                        />
+                        <input
+                          type="button"
+                          class="
+                            button-afa
+                            btn btn-primary btn-lg
+                            h-100
+                            fs-3
+                            js-onclick-27
+                          "
+                          value="27%"
+                        />
+                      </div>
+                    </div>
+
+                    <div
+                      class="
+                        br-eredmeny-box
+                        row row-height-3
+                        mt-2
+                        d-flex
+                        flex-nowrap
+                        justify-content-center
+                      "
+                    >
+                      <p class="br-beszerzes-nev col-6 m-0">
+                        <span class="sortores">Bruttó</span> beszerzési ár:
+                      </p>
+                      <p
+                        class="
+                          br-besz
+                          part-result-bg
+                          col-6
+                          p-1
+                          m-0
+                          d-flex
+                          justify-content-center
+                          align-items-center
+                          text-center
+                          rounded-2
+                          js-display-br
+                        "
+                      >
+                        Ft
+                      </p>
+                    </div>
+
+                    <div class="haszonkulcsok row mt-2">
+                      <div class="haszonkulcs-nev">
+                        <p class="text-center mb-0">Haszonkulcsok:</p>
+                      </div>
+
+                      <div
+                        class="
+                          row-height-3
+                          d-flex
+                          flex-row flex-nowrap
+                          justify-content-center
+                        "
+                      >
+                        <input
+                          type="button"
+                          class="
+                            button-haszonKulcs
+                            btn btn-primary btn-lg
+                            h-100
+                            fs-3
+                            js-onclickN-35
+                          "
+                          value="35%"
+                        />
+                        <input
+                          type="button"
+                          class="
+                            button-haszonKulcs
+                            btn btn-primary btn-lg
+                            h-100
+                            fs-3
+                            js-onclickN-50
+                          "
+                          value="50%"
+                        />
+                        <input
+                          type="button"
+                          class="
+                            button-haszonKulcs
+                            btn btn-primary btn-lg
+                            h-100
+                            fs-3
+                            js-onclickN-55
+                          "
+                          value="55%"
+                        />
+                      </div>
+
+                      <div
+                        class="
+                          haszonkulcs-tetszoleges
+                          d-flex
+                          justify-content-between
+                          mb-2
+                          mt-2
+                        "
+                      >
+                        <div
+                          class="
+                            tetsz-haszonkulcs-sor
+                            row row-height-3
+                            d-flex
+                            flex-row flex-nowrap
+                            justify-content-center
+                            align-items-stretch
+                          "
+                        >
+                          <p class="tetszoleges-nev mb-0 ms-0 me-0 w-25">
+                            <span class="sortores">Szabad</span>
+                            <span class="sortores">haszon-</span>kulcs:
+                          </p>
+                          <div class="d-flex flex-row w-50">
+                            <input
+                              type="number"
+                              class="
+                                input-bg
+                                form-control
+                                fs-6
+                                text-center
+                                js-validate js-tetszN-input
+                              "
+                              name="tetSzoleges"
+                              value=""
+                              maxlength="3"
+                            />
+                            <span class="input-group-text">%</span>
+                          </div>
+                          <input
+                            type="button"
+                            class="
+                              btn btn-primary
+                              w-25
+                              ps-0
+                              pe-0
+                              js-onclick-TetszN
+                            "
+                            value="Számol"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+
+                <div
+                  class="
+                    eladasi-ar-box
+                    row-height-10 row
+                    mt-3
+                    d-flex
+                    justify-content-center
+                    align-content-center
+                    app-part-bg
+                    shadow-lg
+                    border
+                  "
+                >
+                  <div class="col-12">
+                    <p class="eladasi-ar text-color fs-4 fw-bold mb-0">
+                      Eladási ár:
+                    </p>
+                  </div>
+                  <div class="col-12">
+                    <p
+                      class="
+                        el-ar
+                        fs-2
+                        mb-2
+                        text-color text-center
+                        d-flex
+                        justify-content-center
+                        align-items-center
+                        result-bg
+                        rounded-2
+                        js-display-n
+                      "
+                    >
+                      Ft
+                    </p>
+                  </div>
+
+                  <div class="">
+                    <p class="megjegyzes fs-6 mb-0">
+                      * Az eladási ár tartalmazza 200 Ft felett a + 5 Ft-ot.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+    <script src="index.js"></script>
+  </body>
+</html>
