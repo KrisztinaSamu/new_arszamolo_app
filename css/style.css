@@ -3,6 +3,21 @@
           box-sizing: border-box;
 }
 
+/***** Input mezoben szamporgeto kikapcsolasa *****/
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+input[type="number"]:focus {
+  outline: none;
+}
+
+/***************************************************/
 .app-name {
   color: var(--bs-white);
 }
