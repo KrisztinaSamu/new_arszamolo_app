@@ -1,6 +1,6 @@
 # Árszámoló app
 Élelmiszerboltnak készült, árképzési folyamatot egyszerűsítő és gyorsító alkalmazás.
-
+![eladasi_arkalkulator](https://user-images.githubusercontent.com/60664394/140105684-a307680a-9d98-499d-bfda-7acefa3a46ed.jpg)
 
 ## Használata
 ### Bruttó beszerzési ár esetén:
