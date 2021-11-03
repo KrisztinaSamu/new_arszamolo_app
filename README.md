@@ -16,3 +16,4 @@
 - HA nincs annak az értéknek megfelelő gomb, akkor a tetszőleges haszonkulcs sorban beírjuk a kívánt értéket, és kiválsztjuk a "számol" gombot,
 - az Eladási ár címke mellett megjelenik a kiszámolt eredmény, és a haszonkulcs értéke.
 ## Hosting
+ https://krisztinasamu.github.io/new_arszamolo_app/
