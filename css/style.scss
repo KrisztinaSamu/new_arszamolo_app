@@ -95,6 +95,10 @@ input[type="number"]:focus {
   min-height: 4rem;
 }
 
+.row-height-5 {
+  min-height: 5rem;
+}
+
 .row-height-7 {
   min-height: 7rem;
 }
@@ -103,10 +107,10 @@ input[type="number"]:focus {
   min-height: 10rem;
 }
 
-.brutto-input,
+/*.brutto-input,
 .el-ar {
   height: 5rem;
-}
+}*/
 
 .width-90 {
   width: 90%;

@@ -30,16 +30,7 @@
             <h1 class="app-name text-center fs-3 m-2">Eladási árkalkulátor</h1>
           </div>
           <div
-            class="
-              arszamolo-box-container
-              mx-auto
-              d-flex
-              flex-column
-              justify-content-center
-              shadow-lg
-              border border-4 border-light
-              rounded-3
-            "
+            class="arszamolo-box-container mx-auto d-flex flex-column justify-content-center shadow-lg border border-4 border-light rounded-3"
           >
             <ul class="nav nav-tabs justify-content-between">
               <li class="nav-item w-50">
@@ -59,33 +50,17 @@
               </li>
             </ul>
 
-            <div class="tab-content container d-flex p-2">
+            <div class="tab-content container d-flex p-1">
               <div
-                class="
-                  tab-pane
-                  fade
-                  active
-                  show
-                  br-besz-arszamolo
-                  width-90
-                  mx-auto
-                "
+                class="tab-pane fade active show br-besz-arszamolo width-90 mx-auto"
                 id="br"
               >
                 <!-- Brutto beszerzesi arbol szamol eladasi arat FORM -->
                 <form class="brArSzamoloForm mb-3" name="brArSzamolo" id="form">
                   <div
-                    class="
-                      br-ar
-                      app-part-bg
-                      row-height-7 row
-                      form-group
-                      mb-4
-                      align-items-center
-                      shadow
-                    "
+                    class="br-ar app-part-bg row-height-7 row form-group p-1 mb-4 align-items-center shadow"
                   >
-                    <div class="col-4">
+                    <div class="col-8">
                       <label
                         for="brArInput"
                         class="form-label text-color fs-6 fw-bold"
@@ -94,19 +69,33 @@
                       </label>
                     </div>
 
-                    <div class="col-8">
+                    <div class="col-4">
+                      <label
+                        for="brArSulyInput"
+                        class="form-label text-color fs-6 fw-bold"
+                      >
+                        <span class="sortores">Termék</span>súlya:
+                      </label>
+                    </div>
+
+
+                    <div class="col-8  p-0">
                       <input
                         type="number"
-                        class="
-                          brutto-input
-                          input-bg
-                          form-control
-                          mt-2
-                          mb-2
-                          fs-2
-                          text-center
-                          js-validate js-brutto-input
-                        "
+                        class="brutto-input input-bg row-height-4 form-control mt-2 mb-2 fs-2 text-center js-validate js-brutto-input"
+                        name="brAr"
+                        id="brArInput"
+                        value=""
+                        maxlength="6"
+                      />
+                    </div>
+
+                    
+
+                    <div class="col-4  p-0">
+                      <input
+                        type="number"
+                        class="brutto-input input-bg row-height-4 form-control mt-2 mb-2 fs-2 text-center js-validate js-brutto-input"
                         name="brAr"
                         id="brArInput"
                         value=""
@@ -122,45 +111,21 @@
                       </div>
 
                       <div
-                        class="
-                          haszonkulcsok
-                          row-height-4
-                          d-flex
-                          flex-row flex-nowrap
-                          justify-content-center
-                        "
+                        class="haszonkulcsok row-height-4 d-flex flex-row flex-nowrap justify-content-center"
                       >
                         <input
                           type="button"
-                          class="
-                            button-br-hk
-                            btn btn-primary btn-lg
-                            h-100
-                            fs-3
-                            js-onclick-35
-                          "
+                          class="button-br-hk btn btn-primary btn-lg h-100 fs-3 js-onclick-35"
                           value="35%"
                         />
                         <input
                           type="button"
-                          class="
-                            button-br-hk
-                            btn btn-primary btn-lg
-                            h-100
-                            fs-3
-                            js-onclick-50
-                          "
+                          class="button-br-hk btn btn-primary btn-lg h-100 fs-3 js-onclick-50"
                           value="50%"
                         />
                         <input
                           type="button"
-                          class="
-                            button-br-hk
-                            btn btn-primary btn-lg
-                            h-100
-                            fs-3
-                            js-onclick-55
-                          "
+                          class="button-br-hk btn btn-primary btn-lg h-100 fs-3 js-onclick-55"
                           value="55%"
                         />
                       </div>
@@ -175,13 +140,7 @@
                         <div class="input-group tetszoleges-hk">
                           <input
                             type="number"
-                            class="
-                              input-bg
-                              form-control
-                              fs-6
-                              text-center
-                              js-validate js-tetszBr-input
-                            "
+                            class="input-bg form-control fs-6 text-center js-validate js-tetszBr-input"
                             name="tetszoleges"
                             value=""
                             maxlength="3"
@@ -191,13 +150,7 @@
 
                         <input
                           type="button"
-                          class="
-                            tetszoleges-hk
-                            btn btn-primary
-                            h-100
-                            fs-3
-                            js-onclick-TetszB
-                          "
+                          class="tetszoleges-hk btn btn-primary h-100 fs-3 js-onclick-TetszB"
                           value="Számol"
                         />
                       </div>
@@ -205,38 +158,28 @@
                   </div>
                 </form>
                 <div
-                  class="
-                    eladasi-ar-box
-                    row-height-10 row
-                    mt-4
-                    d-flex
-                    justify-content-center
-                    align-content-center
-                    app-part-bg
-                    shadow-lg
-                    border
-                  "
+                  class="eladasi-ar-box row-height-10 row mt-4 d-flex justify-content-center align-content-center app-part-bg shadow-lg border"
                 >
-                  <div class="col-12">
-                    <p class="eladasi-ar text-color fs-4 fw-bold m-0">
+                  <div class="col-8">
+                    <p class="eladasi-ar text-color fs-6 fw-bold m-0">
                       Eladási ár:
                     </p>
                   </div>
-                  <div class="col-12">
+                  <div class="col-4">
+                    <p class="eladasi-ar text-color fs-6 fw-bold m-0">
+                      Egységár:
+                    </p>
+                  </div>
+                  <div class="col-8 p-1">
                     <p
-                      class="
-                        fs-3
-                        el-ar
-                        result-bg
-                        mb-2
-                        text-color text-center
-                        rounded-2
-                        d-flex
-                        justify-content-center
-                        align-items-center
-                        shadow-lg
-                        js-display-b
-                      "
+                      class="fs-3 row-height-5 result-bg mb-2 text-color text-center rounded-2 d-flex justify-content-center align-items-center shadow-lg js-display-b"
+                    >
+                      Ft
+                    </p>
+                  </div>
+                  <div class="col-4 p-1">
+                    <p
+                      class="fs-3 row-height-5 result-bg mb-2 text-color text-center rounded-2 d-flex justify-content-center align-items-center shadow-lg js-display-b"
                     >
                       Ft
                     </p>
@@ -254,17 +197,9 @@
               <div class="tab-pane fade width-90 mx-auto" id="n">
                 <form name="nettoArszamalo">
                   <div
-                    class="
-                      n-ar
-                      app-part-bg
-                      row-height-7 row
-                      form-group
-                      mb-3
-                      align-items-center
-                      shadow
-                    "
+                    class="n-ar app-part-bg row-height-7 row form-group p-1 mb-3 align-items-center shadow"
                   >
-                    <div class="col-4">
+                    <div class="col-8">
                       <label
                         for="netto-ar"
                         class="form-label text-color fs-6 fw-bold m-0"
@@ -273,25 +208,41 @@
                         beszerzési ár:
                       </label>
                     </div>
-                    <div class="col-8">
+
+                    <div class="col-4">
+                      <label
+                        for="brArSulyInput"
+                        class="form-label text-color fs-6 fw-bold"
+                      >
+                        <span class="sortores">Termék</span>súlya:
+                      </label>
+                    </div>
+
+                    <div class="col-8 p-0">
                       <input
                         type="number"
-                        class="
-                          netto-input
-                          input-bg
-                          row-height-4
-                          form-control
-                          fs-2
-                          text-center
-                          js-validate js-netto-input
-                        "
+                        class="netto-input input-bg row-height-4 form-control fs-2 text-center js-validate js-netto-input"
                         name="nAr"
                         id="netto-ar"
                         value=""
                         maxlength="6"
                       />
                     </div>
+
+                    
+
+                    <div class="col-4 p-0">
+                      <input
+                        type="number"
+                        class="brutto-input input-bg row-height-4 form-control mt-2 mb-2 fs-2 text-center js-validate js-brutto-input"
+                        name="brAr"
+                        id="brArInput"
+                        value=""
+                        maxlength="6"
+                      />
+                    </div>
                   </div>
+                  
 
                   <div class="app-part-bg shadow-lg row justify-content-center">
                     <div class="afa row">
@@ -300,77 +251,34 @@
                       </div>
 
                       <div
-                        class="
-                          afakulcsok
-                          row-height-3
-                          d-flex
-                          flex-row flex-nowrap
-                          justify-content-center
-                        "
+                        class="afakulcsok row-height-3 d-flex flex-row flex-nowrap justify-content-center"
                       >
                         <input
                           type="button"
-                          class="
-                            button-afa
-                            btn btn-primary btn-lg
-                            h-100
-                            fs-3
-                            js-onclick-5
-                          "
+                          class="button-afa btn btn-primary btn-lg h-100 fs-3 js-onclick-5"
                           value="5%"
                         />
                         <input
                           type="button"
-                          class="
-                            button-afa
-                            btn btn-primary btn-lg
-                            h-100
-                            fs-3
-                            js-onclick-18
-                          "
+                          class="button-afa btn btn-primary btn-lg h-100 fs-3 js-onclick-18"
                           value="18%"
                         />
                         <input
                           type="button"
-                          class="
-                            button-afa
-                            btn btn-primary btn-lg
-                            h-100
-                            fs-3
-                            js-onclick-27
-                          "
+                          class="button-afa btn btn-primary btn-lg h-100 fs-3 js-onclick-27"
                           value="27%"
                         />
                       </div>
                     </div>
 
                     <div
-                      class="
-                        br-eredmeny-box
-                        row row-height-3
-                        mt-2
-                        d-flex
-                        flex-nowrap
-                        justify-content-center
-                      "
+                      class="br-eredmeny-box row row-height-3 mt-2 d-flex flex-nowrap justify-content-center"
                     >
                       <p class="br-beszerzes-nev col-6 m-0">
                         <span class="sortores">Bruttó</span> beszerzési ár:
                       </p>
                       <p
-                        class="
-                          br-besz
-                          part-result-bg
-                          col-6
-                          p-1
-                          m-0
-                          d-flex
-                          justify-content-center
-                          align-items-center
-                          text-center
-                          rounded-2
-                          js-display-br
-                        "
+                        class="br-besz part-result-bg col-6 p-1 m-0 d-flex justify-content-center align-items-center text-center rounded-2 js-display-br"
                       >
                         Ft
                       </p>
@@ -382,66 +290,30 @@
                       </div>
 
                       <div
-                        class="
-                          row-height-3
-                          d-flex
-                          flex-row flex-nowrap
-                          justify-content-center
-                        "
+                        class="row-height-3 d-flex flex-row flex-nowrap justify-content-center"
                       >
                         <input
                           type="button"
-                          class="
-                            button-haszonKulcs
-                            btn btn-primary btn-lg
-                            h-100
-                            fs-3
-                            js-onclickN-35
-                          "
+                          class="button-haszonKulcs btn btn-primary btn-lg h-100 fs-3 js-onclickN-35"
                           value="35%"
                         />
                         <input
                           type="button"
-                          class="
-                            button-haszonKulcs
-                            btn btn-primary btn-lg
-                            h-100
-                            fs-3
-                            js-onclickN-50
-                          "
+                          class="button-haszonKulcs btn btn-primary btn-lg h-100 fs-3 js-onclickN-50"
                           value="50%"
                         />
                         <input
                           type="button"
-                          class="
-                            button-haszonKulcs
-                            btn btn-primary btn-lg
-                            h-100
-                            fs-3
-                            js-onclickN-55
-                          "
+                          class="button-haszonKulcs btn btn-primary btn-lg h-100 fs-3 js-onclickN-55"
                           value="55%"
                         />
                       </div>
 
                       <div
-                        class="
-                          haszonkulcs-tetszoleges
-                          d-flex
-                          justify-content-between
-                          mb-2
-                          mt-2
-                        "
+                        class="haszonkulcs-tetszoleges d-flex justify-content-between mb-2 mt-2"
                       >
                         <div
-                          class="
-                            tetsz-haszonkulcs-sor
-                            row row-height-3
-                            d-flex
-                            flex-row flex-nowrap
-                            justify-content-center
-                            align-items-stretch
-                          "
+                          class="tetsz-haszonkulcs-sor row row-height-3 d-flex flex-row flex-nowrap justify-content-center align-items-stretch"
                         >
                           <p class="tetszoleges-nev mb-0 ms-0 me-0 w-25">
                             <span class="sortores">Szabad</span>
@@ -450,13 +322,7 @@
                           <div class="d-flex flex-row w-50">
                             <input
                               type="number"
-                              class="
-                                input-bg
-                                form-control
-                                fs-6
-                                text-center
-                                js-validate js-tetszN-input
-                              "
+                              class="input-bg form-control fs-6 text-center js-validate js-tetszN-input"
                               name="tetSzoleges"
                               value=""
                               maxlength="3"
@@ -465,13 +331,7 @@
                           </div>
                           <input
                             type="button"
-                            class="
-                              btn btn-primary
-                              w-25
-                              ps-0
-                              pe-0
-                              js-onclick-TetszN
-                            "
+                            class="btn btn-primary w-25 ps-0 pe-0 js-onclick-TetszN"
                             value="Számol"
                           />
                         </div>
@@ -481,37 +341,28 @@
                 </form>
 
                 <div
-                  class="
-                    eladasi-ar-box
-                    row-height-10 row
-                    mt-3
-                    d-flex
-                    justify-content-center
-                    align-content-center
-                    app-part-bg
-                    shadow-lg
-                    border
-                  "
+                  class="eladasi-ar-box row-height-10 row mt-3 d-flex justify-content-center align-content-center app-part-bg shadow-lg border"
                 >
-                  <div class="col-12">
-                    <p class="eladasi-ar text-color fs-4 fw-bold mb-0">
+                  <div class="col-8">
+                    <p class="eladasi-ar text-color fs-6 fw-bold mb-0">
                       Eladási ár:
                     </p>
                   </div>
-                  <div class="col-12">
+                  <div class="col-4">
+                    <p class="eladasi-ar text-color fs-6 fw-bold mb-0">
+                      Egységár:
+                    </p>
+                  </div>
+                  <div class="col-8 p-1">
                     <p
-                      class="
-                        el-ar
-                        fs-2
-                        mb-2
-                        text-color text-center
-                        d-flex
-                        justify-content-center
-                        align-items-center
-                        result-bg
-                        rounded-2
-                        js-display-n
-                      "
+                      class="row-height-5 fs-2 mb-2 text-color text-center d-flex justify-content-center align-items-center result-bg rounded-2 js-display-n"
+                    >
+                      Ft
+                    </p>
+                  </div>
+                  <div class="col-4 p-1">
+                    <p
+                      class="row-height-5 fs-2 mb-2 text-color text-center d-flex justify-content-center align-items-center result-bg rounded-2 js-display-n"
                     >
                       Ft
                     </p>
