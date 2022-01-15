@@ -6,6 +6,8 @@ const eladasiArBruttobolDOM = document.querySelector(".js-display-b");
 const hkDOM = document.querySelector(".js-display-b-hk");
 const bruttoArDOM = document.querySelector(".js-display-br");
 const eladasiArNettobolDOM = document.querySelector(".js-display-n");
+const sulyBrDOM = document.querySelector(".js-display-br-egysegar");
+const sulyNDOM = document.querySelector(".js-display-n-egysegar");
 
 // Input mezobe beirhato +, -, e, E korlatozasara szolgalo fuggveny.
 
@@ -63,21 +65,43 @@ nettoInputFocus.addEventListener("focus", () => {
 
 // Ez a függveny 200ft felett hozzaad az eladasi arhoz 5ft-ot.
 
+/*.toLocaleString("hu", {
+  style: "currency",
+  currency: "HUF",
+  maximumFractionDigits: 1,
+});
+
+.toLocaleString("hu", {
+      style: "currency",
+      currency: "HUF",
+      maximumFractionDigits: 1,
+    });*/
+
 function result(eladasiAr) {
   if (eladasiAr < 200) {
-    return eladasiAr.toLocaleString("hu", {
-      style: "currency",
-      currency: "HUF",
-      maximumFractionDigits: 1,
-    });
+    return eladasiAr.toFixed(1);
   } else if (eladasiAr >= 200) {
-    return (eladasiAr + 5).toLocaleString("hu", {
-      style: "currency",
-      currency: "HUF",
-      maximumFractionDigits: 1,
-    });
+    return (eladasiAr + 5).toFixed(1);
   } else return "";
 }
+
+// Egysegar kiszamoló fuggveny
+
+function egysegArBr(sulyBr, vegsoAr) {
+  const egysegar = (1000 / sulyBr) * vegsoAr;
+
+  return egysegar.toFixed(0);
+}
+
+function egysegArN(sulyN, vegsoAr) {
+  const egysegar = (1000 / sulyN) * vegsoAr;
+
+  return egysegar.toFixed(0);
+}
+
+const sulyBr = () => document.querySelector(".js-br-suly-input").value;
+const sulyN = () => document.querySelector(".js-n-suly-input").value;
+
 
 /**************************************************/
 /* Eladasi ar kiszamitasa brutto beszerzesi arbol */
@@ -88,24 +112,40 @@ const bruttoBeszerzesiAr = () =>
 
 function bruttobolElArSzamolo(haszonKulcs) {
   const eladasiAr = bruttoBeszerzesiAr() * (haszonKulcs / 100 + 1);
+  const vegsoAr = result(eladasiAr);
 
   const markup = `
-    <div >  
+     
       <p style="margin: 0;
                 display:flex; 
                 flex-direction: column; 
                 flex-wrap: wrap; 
                 justify-content: center;">
-        <span style="font-size: 16px; 
-                      padding-right: 1.5rem">
+        <span style="font-size: 16px;">
           Hk: ${haszonKulcs}%
         </span>
-        ${result(eladasiAr)} *
+        ${result(eladasiAr)} Ft*
       </p>
-    </div>
+    
     `;
 
   eladasiArBruttobolDOM.innerHTML = markup;
+
+  const sulyMarkup = `
+  
+      <p style="margin: 0;
+                display:flex; 
+                flex-direction: column; 
+                flex-wrap: wrap; 
+                justify-content: center;">
+        <span style="font-size: 16px;">
+          Súly: ${sulyBr()}
+        </span>
+        ${egysegArBr(sulyBr(), vegsoAr)} Ft
+      </p>
+   
+ `;
+  sulyBrDOM.innerHTML = sulyMarkup;
 }
 
 document.querySelector(".js-onclick-35").addEventListener("click", () => {
@@ -125,6 +165,7 @@ const tetszolegesHaszonKulcs = () =>
 
 function tetszHaszKulcsElArSzamolo() {
   const elAr = bruttoBeszerzesiAr() * (tetszolegesHaszonKulcs() / 100 + 1);
+  const vegsoAr = result(elAr);
 
   const markup = `
       <p style="margin: 0;
@@ -132,15 +173,30 @@ function tetszHaszKulcsElArSzamolo() {
                 flex-direction: column; 
                 flex-wrap: wrap; 
                 justify-content: center;">
-        <span style="font-size: 16px; 
-                      padding-right: 1.5rem">
+        <span style="font-size: 16px;">
           Hk: ${tetszolegesHaszonKulcs()}%
         </span>
-        ${result(elAr)} *
+        ${result(elAr)} Ft*
       </p>
     `;
 
   eladasiArBruttobolDOM.innerHTML = markup;
+
+  const sulyMarkup = `
+   
+      <p style="margin: 0;
+                display:flex; 
+                flex-direction: column; 
+                flex-wrap: wrap; 
+                justify-content: center;">
+        <span style="font-size: 16px;">
+          Súly: ${sulyBr()}
+        </span>
+        ${egysegArBr(sulyBr(), vegsoAr)} Ft
+      </p>
+    
+ `;
+  sulyBrDOM.innerHTML = sulyMarkup;
 }
 
 document.querySelector(".js-onclick-TetszB").addEventListener("click", () => {
@@ -161,7 +217,7 @@ var nettobolBruttoEredmeny = 0;
 // Netto beszerzesi arbol brutto beszerzesi arat szamol
 
 function bruttoAr(afa) {
-  nettobolBruttoEredmeny = nettoAr() * (afa / 100 + 1);
+  nettobolBruttoEredmeny = (nettoAr() * (afa / 100 + 1)).toFixed(1);
 
   const markup = `
           <p style="margin: 0;
@@ -172,11 +228,7 @@ function bruttoAr(afa) {
             <span style="font-size: 12px">
               Áfa: ${afa}%
             </span>
-            ${nettobolBruttoEredmeny.toLocaleString("hu", {
-              style: "currency",
-              currency: "HUF",
-              maximumFractionDigits: 1,
-            })}
+            ${nettobolBruttoEredmeny} Ft
           </p>
       `;
 
@@ -195,9 +247,9 @@ document.querySelector(".js-onclick-27").addEventListener("click", () => {
 
 // A nettobol kiszamolt brutto beszerzesi arbol szamol eladasi arat
 
-function nettobolElAr(haszKulcs) {
-  const eladasiAr = nettobolBruttoEredmeny * (haszKulcs / 100 + 1);
-  result(eladasiAr);
+function nettobolElAr(haszonKulcs) {
+  const eladasiAr = nettobolBruttoEredmeny * (haszonKulcs / 100 + 1);
+  const vegsoAr = result(eladasiAr);
 
   const markup = `
           <p style="margin: 0;
@@ -205,14 +257,27 @@ function nettobolElAr(haszKulcs) {
                     flex-direction: column; 
                     flex-wrap: wrap; 
                     justify-content: center;">
-            <span style="font-size: 16px; 
-                    padding-right: 1.5rem">
-              Hk: ${haszKulcs}%
+            <span style="font-size: 16px;">
+              Hk: ${haszonKulcs}%
             </span>
-            ${result(eladasiAr)} *
+            ${result(eladasiAr)} Ft*
           </p>
-                `;
+  `;
   eladasiArNettobolDOM.innerHTML = markup;
+
+  const sulyMarkup = `
+      <p style="margin: 0;
+                display:flex; 
+                flex-direction: column; 
+                flex-wrap: wrap; 
+                justify-content: center;">
+        <span style="font-size: 16px;">
+          Súly: ${sulyN()}
+        </span>
+        ${egysegArN(sulyN(), vegsoAr)} Ft
+      </p>
+  `;
+  sulyNDOM.innerHTML = sulyMarkup;
 }
 
 document.querySelector(".js-onclickN-35").addEventListener("click", () => {
@@ -232,7 +297,7 @@ const tetszolegesHaszKulcs = () =>
 
 function tetszoleges() {
   const eladasiAr = nettobolBruttoEredmeny * (tetszolegesHaszKulcs() / 100 + 1);
-  result(eladasiAr);
+  const vegsoAr = result(eladasiAr);
 
   const markup = `
       <p style="margin: 0; 
@@ -240,15 +305,27 @@ function tetszoleges() {
                 flex-direction: column; 
                 flex-wrap: wrap; 
                 justify-content: center;">
-        <span style="font-size: 16px; 
-                      padding-right: 1.5rem">
+        <span style="font-size: 16px;">
           Hk: ${tetszolegesHaszKulcs()}%
         </span>
-        ${result(eladasiAr)} *
+        ${result(eladasiAr)} Ft*
       </p>
-    `;
-
+  `;
   eladasiArNettobolDOM.innerHTML = markup;
+
+  const sulyMarkup = `
+      <p style="margin: 0;
+                display:flex; 
+                flex-direction: column; 
+                flex-wrap: wrap; 
+                justify-content: center;">
+        <span style="font-size: 16px;">
+          Súly: ${sulyN()}
+        </span>
+        ${egysegArN(sulyN(), vegsoAr)} Ft
+        </p>
+  `;
+  sulyNDOM.innerHTML = sulyMarkup;
 }
 
 document.querySelector(".js-onclick-TetszN").addEventListener("click", () => {
