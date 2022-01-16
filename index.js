@@ -79,9 +79,9 @@ nettoInputFocus.addEventListener("focus", () => {
 
 function result(eladasiAr) {
   if (eladasiAr < 200) {
-    return eladasiAr.toFixed(1);
+    return eladasiAr.toFixed(0);
   } else if (eladasiAr >= 200) {
-    return (eladasiAr + 5).toFixed(1);
+    return (eladasiAr + 5).toFixed(0);
   } else return "";
 }
 
