@@ -88,20 +88,25 @@ function result(eladasiAr) {
 // Egysegar kiszamoló fuggveny
 
 function egysegArBr(sulyBr, vegsoAr) {
-  const egysegar = (1000 / sulyBr) * vegsoAr;
-
-  return egysegar.toFixed(0);
+  if ((sulyBr !== "") & (sulyBr !== "0")) {
+    const egysegar = (1000 / sulyBr) * vegsoAr;
+    return egysegar.toFixed(0);
+  } else {
+    return "";
+  }
 }
 
 function egysegArN(sulyN, vegsoAr) {
-  const egysegar = (1000 / sulyN) * vegsoAr;
-
-  return egysegar.toFixed(0);
+  if ((sulyN !== "") & (sulyN !== "0")) {
+    const egysegar = (1000 / sulyN) * vegsoAr;
+    return egysegar.toFixed(0);
+  } else {
+    return "";
+  }
 }
 
 const sulyBr = () => document.querySelector(".js-br-suly-input").value;
 const sulyN = () => document.querySelector(".js-n-suly-input").value;
-
 
 /**************************************************/
 /* Eladasi ar kiszamitasa brutto beszerzesi arbol */
@@ -139,7 +144,7 @@ function bruttobolElArSzamolo(haszonKulcs) {
                 flex-wrap: wrap; 
                 justify-content: center;">
         <span style="font-size: 16px;">
-          Súly: ${sulyBr()}
+          Súly: ${sulyBr()} g/ml
         </span>
         ${egysegArBr(sulyBr(), vegsoAr)} Ft
       </p>
@@ -190,7 +195,7 @@ function tetszHaszKulcsElArSzamolo() {
                 flex-wrap: wrap; 
                 justify-content: center;">
         <span style="font-size: 16px;">
-          Súly: ${sulyBr()}
+          Súly: ${sulyBr()} g/ml
         </span>
         ${egysegArBr(sulyBr(), vegsoAr)} Ft
       </p>
@@ -272,7 +277,7 @@ function nettobolElAr(haszonKulcs) {
                 flex-wrap: wrap; 
                 justify-content: center;">
         <span style="font-size: 16px;">
-          Súly: ${sulyN()}
+          Súly: ${sulyN()} g/ml
         </span>
         ${egysegArN(sulyN(), vegsoAr)} Ft
       </p>
@@ -320,7 +325,7 @@ function tetszoleges() {
                 flex-wrap: wrap; 
                 justify-content: center;">
         <span style="font-size: 16px;">
-          Súly: ${sulyN()}
+          Súly: ${sulyN()} g/ml
         </span>
         ${egysegArN(sulyN(), vegsoAr)} Ft
         </p>
