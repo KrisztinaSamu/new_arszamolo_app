@@ -64,33 +64,71 @@ nettoInputFocus.addEventListener("focus", () => {
 });
 
 // Ez a függveny 200ft felett hozzaad az eladasi arhoz 5ft-ot.
-
-/*.toLocaleString("hu", {
-  style: "currency",
-  currency: "HUF",
-  maximumFractionDigits: 1,
-});
-
-.toLocaleString("hu", {
-      style: "currency",
-      currency: "HUF",
-      maximumFractionDigits: 1,
-    });*/
+var ar = [];
 
 function result(eladasiAr) {
   if (eladasiAr < 200) {
-    return eladasiAr.toFixed(0);
+    ar = eladasiAr.toFixed(0);
+    var last_element = ar[ar.length - 1];
+
+    if (
+      last_element == "0" ||
+      last_element == "1" ||
+      last_element == "2" ||
+      last_element == "3" ||
+      last_element == "4"
+    ) {
+      var kerekitettAr =
+        ar.slice(0, -1) + last_element.replace(/[0,1,2,3,4]/g, "5");
+
+      return kerekitettAr;
+    } else if (
+      last_element == "6" ||
+      last_element == "7" ||
+      last_element == "8"
+    ) {
+      var kerekitettAr =
+        ar.slice(0, -1) + last_element.replace(/[6,7,8]/g, "9");
+
+      return kerekitettAr;
+    } else {
+      return ar;
+    }
   } else if (eladasiAr >= 200) {
-    return (eladasiAr + 5).toFixed(0);
+    ar = (eladasiAr + 5).toFixed(0);
+    var last_element = ar[ar.length - 1];
+
+    if (
+      last_element == "0" ||
+      last_element == "1" ||
+      last_element == "2" ||
+      last_element == "3" ||
+      last_element == "4"
+    ) {
+      var kerekitettAr =
+        ar.slice(0, -1) + last_element.replace(/[0,1,2,3,4]/g, "5");
+
+      return kerekitettAr;
+    } else if (
+      last_element == "6" ||
+      last_element == "7" ||
+      last_element == "8"
+    ) {
+      var kerekitettAr =
+        ar.slice(0, -1) + last_element.replace(/[6,7,8]/g, "9");
+
+      return kerekitettAr;
+    } else {
+      return ar;
+    }
   } else return "";
 }
-
 // Egysegar kiszamoló fuggveny
 
 function egysegArBr(sulyBr, vegsoAr) {
   if ((sulyBr !== "") & (sulyBr !== "0")) {
     const egysegar = (1000 / sulyBr) * vegsoAr;
-    return egysegar.toFixed(0);
+    return Number(egysegar.toFixed(0));
   } else {
     return "";
   }
@@ -99,7 +137,7 @@ function egysegArBr(sulyBr, vegsoAr) {
 function egysegArN(sulyN, vegsoAr) {
   if ((sulyN !== "") & (sulyN !== "0")) {
     const egysegar = (1000 / sulyN) * vegsoAr;
-    return egysegar.toFixed(0);
+    return Number(egysegar.toFixed(0));
   } else {
     return "";
   }
@@ -129,7 +167,7 @@ function bruttobolElArSzamolo(haszonKulcs) {
         <span style="font-size: 16px;">
           Hk: ${haszonKulcs}%
         </span>
-        ${result(eladasiAr)} Ft*
+        ${vegsoAr} Ft*
       </p>
     
     `;
@@ -181,7 +219,7 @@ function tetszHaszKulcsElArSzamolo() {
         <span style="font-size: 16px;">
           Hk: ${tetszolegesHaszonKulcs()}%
         </span>
-        ${result(elAr)} Ft*
+        ${vegsoAr} Ft*
       </p>
     `;
 
@@ -265,7 +303,7 @@ function nettobolElAr(haszonKulcs) {
             <span style="font-size: 16px;">
               Hk: ${haszonKulcs}%
             </span>
-            ${result(eladasiAr)} Ft*
+            ${vegsoAr} Ft*
           </p>
   `;
   eladasiArNettobolDOM.innerHTML = markup;
@@ -313,7 +351,7 @@ function tetszoleges() {
         <span style="font-size: 16px;">
           Hk: ${tetszolegesHaszKulcs()}%
         </span>
-        ${result(eladasiAr)} Ft*
+        ${vegsoAr} Ft*
       </p>
   `;
   eladasiArNettobolDOM.innerHTML = markup;
