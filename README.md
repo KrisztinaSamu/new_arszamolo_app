@@ -4,16 +4,16 @@
 
 ## Használata
 ### Bruttó beszerzési ár esetén:
-- a "Bruttó beszerzési árból számol" oldalon beírjuk a bruttó beszerzési árat a megfelelő helyre,
-- kiválasztjuk az árképzéshez megfelelő haszonkulcs gombot, 
-- HA nincs annak az értéknek megfelelő gomb, akkor a tetszőleges haszonkulcs sorban beírjuk a kívánt értéket, és kiválsztjuk a "számol" gombot,
-- az Eladási ár címke mellett megjelenik a kiszámolt eredmény, és a haszonkulcs értéke.
+- a "Bruttó beszerzési árból számol" oldalon beírjuk a bruttó beszerzési árat, és a termék súlyát (g-ban, vagy ml-ben) a megfelelő helyre, ezután
+- megnyomjuk az árképzéshez megfelelő haszonkulcs gombot, 
+- HA nincs annak az értéknek megfelelő gomb, akkor a tetszőleges haszonkulcs sorban beírjuk a kívánt értéket, és megnyomjuk a "számol" gombot,
+- az Eladási ár, és az Egységár címke alatt megjelenik a termék kiszámolt eladási ára, a használt haszonkulcs értéke, és az egységára.
 ### Nettó beszerzési ár esetén:
-- a "Nettó beszerzési árból számol" oldalon beírjuk a nettó beszerzési árat a megfelelő helyre,
-- kiválasztjuk a nettó árhoz tartozó ÁFA értékének a gombját, 
-- ezután megkapjuk a bruttó beszerzési árat, ezzel a kapott értékkel számol tovább az alkalmazás,
-- kiválasztjuk az árképzéshez megfelelő haszonkulcs gombot,
-- HA nincs annak az értéknek megfelelő gomb, akkor a tetszőleges haszonkulcs sorban beírjuk a kívánt értéket, és kiválsztjuk a "számol" gombot,
-- az Eladási ár címke mellett megjelenik a kiszámolt eredmény, és a haszonkulcs értéke.
+- a "Nettó beszerzési árból számol" oldalon beírjuk a nettó beszerzési árat, és a termék súlyát (g-ban, vagy ml-ben) a megfelelő helyre, ezután
+- megnyomjuk a nettó árhoz tartozó ÁFA értékének gombját, ezután
+- megkapjuk a bruttó beszerzési árat, ezzel a kapott értékkel számol tovább az alkalmazás, ezután
+- megnyomjuk az árképzéshez megfelelő haszonkulcs gombot,
+- HA nincs annak az értéknek megfelelő gomb, akkor a tetszőleges haszonkulcs sorban beírjuk a kívánt értéket, és megnyomjuk a "számol" gombot,
+- az Eladási ár, és az Egységár címke alatt megjelenik a termék kiszámolt eladási ára, a használt haszonkulcs értéke, és az egységára.
 ## Hosting
  https://krisztinasamu.github.io/new_arszamolo_app/
