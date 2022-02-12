@@ -1,5 +1,5 @@
 # Árszámoló app
-Élelmiszerboltnak készült, árképzési folyamatot egyszerűsítő és gyorsító alkalmazás.
+## Élelmiszerboltnak készült, árképzési folyamatot egyszerűsítő és gyorsító alkalmazás.
 ![](https://user-images.githubusercontent.com/60664394/150500003-a2638072-8cfc-486a-bd8a-2964785422a4.jpg)
 
 ## Használata
